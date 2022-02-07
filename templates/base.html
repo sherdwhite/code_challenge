@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href={% static "/bootstrap-5.0.2-dist/css/bootstrap.min.css" %}>
+<!-- Latest compiled and minified JavaScript -->
+<script src={% static "/bootstrap-5.0.2-dist/js/bootstrap.min.js" %}></script>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <title>Code Challenge</title>
+</head>
+<body>
+    <div style="padding-top:1rem;">
+        <nav class="left" style="padding-left:3rem">
+            <a class="left_nav_item" href="{% url 'code_challenge:index' %}">Sync Logs</a>
+            <a class="left_nav_item" style="padding-left: 3rem" href="{% url 'code_challenge:add_client' %}">Add New Client</a>
+        </nav>
+    </div>
+
+    <div class="container">
+        {% block body_block %}
+        <!-- Anything outside of this will be inherited if you extend -->
+        {% endblock %}
+    </div>
+
+</body>
+</html>

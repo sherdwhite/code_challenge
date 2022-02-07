@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends "code_challenge/../base.html" %}
+{% load custom_tags %}
+
+    {% block body_block %}
+        <h4 style="padding-top: 2rem">Add the account id number you want to use for the new client:</h4>
+
+        <form method="post">{% csrf_token %}
+            <div align="left" style="margin:20px">
+                {% for field in form %}
+                    <div class="form-group row mt-3">
+                      <div class="col-sm-2 col-form-label">
+                        {{ field.label_tag }}
+                        {% if field.help_text %}
+                          <sup>{{ field.help_text }}</sup>
+                        {% endif %}
+                        {% for error in field.errors %}
+                           <div class="row">
+                             <div class="alert alert-danger">{{error}}</div>
+                           </div>
+                        {% endfor %}
+                       </div>
+                        <div class="form-group col-sm-3">
+                         {{ field|add_css:"form-control" }}
+                       </div>
+                    </div>
+                  {% endfor %}
+                <button class="btn btn-lg btn-outline-primary" type="submit">Save New Client</button>
+            </div>
+        </form>
+        {% if status %}
+            <span style="color: red">{{ status }}</span>
+            <br>
+        {% endif %}
+
+    {% endblock %}
+
+
+
