@@ -3,5 +3,5 @@ django==4.1.13
 django-model-utils==4.2.0
 djangorestframework==3.13.1
 requests==2.32.2
-urllib3==1.26.18
+urllib3==1.26.19
 xmltodict==0.12.0
